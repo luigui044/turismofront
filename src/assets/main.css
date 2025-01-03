@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Lilita+One&family=Permanent+Marker&display=swap');
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.edu-au-vic-wa-nt-pre-text {
+  font-family: "Edu AU VIC WA NT Pre", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.lilita-one-regular {
+  font-family: "Lilita One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+header{
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+}
+.grid-nogutter{
+    width: 100%;
+    display: flex;
+flex-wrap: wrap;
+    
+}
+
+
+.margins-btn .p-button{
+    margin-right: 20px;
+    width: 260px;
+}
+
+
+
+.arial-black-font, .p-menubar { 
+	font-family: Arial Black,Arial Bold,Gadget,sans-serif; 
+}
+
+
+.p-menubar{
+    background-color: #084C61;
+    border:none
+}
+
+
+a.p-menuitem-link{
+    font-weight: bold;
+    color: white !important;
+}
+
+a.p-menuitem-link:hover{
+    color: #084C61 !important;
+}
+
+
+li.p-menuitem.p-menuitem-active.p-highlight div.p-menuitem-content a.p-menuitem-link
+{
+    color: #084C61 !important;
+}
+
+.bg-custom-primary, .p-submenu-list li.p-menuitem div.p-menuitem-content a.p-menuitem-link:hover{
+       background-color: #084C61;
+        color: white !important;
+}
+.bg-custom-secondary, .margins-btn .p-button:hover{
+    background-color: #4F6D7A;
+    color:white;
+}
+.bg-custom-green{
+    background-color: #56A3A6;
+}
+.bg-custom-yellow{
+    background-color: #E3B505;
+}
+.b-custom-red{
+    background-color: #DB504A ;
+}
+
+#videoPortada{
+    width: 100%;
+}
+
+
+
+.video-background {
+    position: relative;
+    width: 100%;
+    height:600px;
+    overflow: hidden;
+}
+
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Coloca el video detrás del contenido */
+}
+
+.video-background .content {
+    position: relative;
+    z-index: 1; /* Asegura que el contenido esté sobre el video */
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+
+html,body,#app{
+    padding: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+}
+
+.bg-svg{
+
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1008%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='url(%26quot%3b%23SvgjsLinearGradient1009%26quot%3b)'%3e%3c/rect%3e%3cpath d='M1440 0L1018.88 0L1440 39.69z' fill='rgba(255%2c 255%2c 255%2c .1)'%3e%3c/path%3e%3cpath d='M1018.88 0L1440 39.69L1440 185.94L862.88 0z' fill='rgba(255%2c 255%2c 255%2c .075)'%3e%3c/path%3e%3cpath d='M862.88 0L1440 185.94L1440 296.06L636.4300000000001 0z' fill='rgba(255%2c 255%2c 255%2c .05)'%3e%3c/path%3e%3cpath d='M636.4300000000001 0L1440 296.06L1440 377.4L590.5000000000001 0z' fill='rgba(255%2c 255%2c 255%2c .025)'%3e%3c/path%3e%3cpath d='M0 560L22.97 560L0 505.98z' fill='rgba(0%2c 0%2c 0%2c .1)'%3e%3c/path%3e%3cpath d='M0 505.98L22.97 560L487.90999999999997 560L0 410.20000000000005z' fill='rgba(0%2c 0%2c 0%2c .075)'%3e%3c/path%3e%3cpath d='M0 410.2L487.90999999999997 560L970.1099999999999 560L0 287.07z' fill='rgba(0%2c 0%2c 0%2c .05)'%3e%3c/path%3e%3cpath d='M0 287.07L970.1099999999999 560L1064.3899999999999 560L0 230.51999999999998z' fill='rgba(0%2c 0%2c 0%2c .025)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1008'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='15.28%25' y1='-39.29%25' x2='84.72%25' y2='139.29%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient1009'%3e%3cstop stop-color='rgba(86%2c 163%2c 166%2c 1)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(8%2c 76%2c 97%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
+    background-size: cover;
+}
