@@ -23,6 +23,10 @@ import Textarea from 'primevue/textarea';
 import FloatLabel from 'primevue/floatlabel';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { createI18n } from 'vue-i18n';
+import SectionLugares from '@/components/home/SectionLugares.vue';
+import SectionOfertas from '@/components/home/SectionOfertas.vue';
+import SectionEventos from '@/components/home/SectionEventos.vue';
+
 
 const i18n = createI18n({
     locale: 'es', // Idioma por defecto
@@ -42,6 +46,9 @@ app.use(PrimeVue);
 app.use(router);
 app.use(Vue3SocialSharingPlugin);
 app.use(i18n);
+app.component('SectionLugares', SectionLugares);
+app.component('SectionOfertas', SectionOfertas);
+app.component('SectionEventos', SectionEventos);
 app.component('Menubar', Menubar);
 app.component('Galleria', Galleria);
 app.component('Badge', Badge)

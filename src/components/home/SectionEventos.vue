@@ -2,7 +2,7 @@
 
     <div class="grid-nogutter justify-content-left pl-6 text-center  ">
 
-        <template v-for="(oferta, index) in offerts" :key="index" class="">
+        <template v-for="(oferta, index) in events" :key="index" class="">
 
             <div class="col-2 ml-3">
                 <Card>
@@ -11,9 +11,13 @@
                             :src="baseUrl + oferta.attributes.imagenes.data[0].attributes.formats.thumbnail.url"
                             width="100%" />
                     </template>
-                    <template #title>{{ oferta.attributes.nombre_oferta }}</template>
-                    <template #subtitle>Válido hasta {{ formatearFecha(oferta.attributes.fecha_final)
-                        }}</template>
+                    <template #title>{{ oferta.attributes.nombre_evento }}</template>
+                    <template #subtitle>
+                        <p> desde {{ formatearFecha(oferta.attributes.fecha_inicio)
+                            }}</p>
+                        <p> hasta {{ formatearFecha(oferta.attributes.fecha_final)
+                            }}</p>
+                    </template>
                     <template #footer>
 
                         <Button label="Ver oferta" class="w-full" />
@@ -23,14 +27,14 @@
             </div>
         </template>
     </div>
-</template>
 
+</template>
 <script setup>
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
 const props = defineProps({
-    offerts: {
+    events: {
         type: Array,
         default: null,
     }
@@ -43,5 +47,5 @@ function formatearFecha(fecha) {
     return `${dia}-${mes}-${anio}`;
 }
 
-// console.log(props.offerts)
+console.log(props.events)
 </script>

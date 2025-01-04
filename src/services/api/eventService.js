@@ -1,9 +1,9 @@
 import httpClient from '../httpClient';
 
-export const offertsService = {
-    async getOfferts(categoryId, limit) {
+export const eventService = {
+    async getEvents(categoryId, limit) {
         try {
-            let query = `/ofertas?`;
+            let query = `/eventos?`;
             query += 'populate=imagenes';
 
             if (categoryId) {

@@ -1,6 +1,6 @@
 <template>
     <div class="grid-nogutter mt-6">
-        <div class="col-12 text-center py-2 my-3">
+        <div class="col-12 text-left pl-6 py-2 my-3">
             <h2 style="text-shadow: 2px 3px 5px black; background-color: #DB504A; display: inline;"
                 class="edu-au-vic-wa-nt-pre-text px-3 py-1 border-round text-white">¿Qué quieres hacer
                 hoy?</h2>
