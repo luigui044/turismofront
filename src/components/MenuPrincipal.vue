@@ -46,108 +46,108 @@ const items = ref([
     {
         label: 'Inicio',
         icon: 'pi pi-home',
-        to: '/' // Aquí agregas la ruta
+        to: '/'
 
     },
-    {
-        label: 'Noticias',
-        icon: 'pi pi-comments'
-    },
-    {
-        label: 'El Salvador',
-        icon: 'pi pi-map-marker',
-        items: [
-            {
-                label: 'Información',
-                icon: 'pi pi-bolt',
+    // {
+    //     label: 'Noticias',
+    //     icon: 'pi pi-comments'
+    // },
+    // {
+    //     label: 'El Salvador',
+    //     icon: 'pi pi-map-marker',
+    //     items: [
+    //         {
+    //             label: 'Información',
+    //             icon: 'pi pi-bolt',
 
-            },
-            {
-                label: 'Ingresar al país',
-                icon: 'pi pi-server',
+    //         },
+    //         {
+    //             label: 'Ingresar al país',
+    //             icon: 'pi pi-server',
 
-            },
-            {
-                label: 'Bio Seguridad',
-                icon: 'pi pi-pencil',
+    //         },
+    //         {
+    //             label: 'Bio Seguridad',
+    //             icon: 'pi pi-pencil',
 
-            },
-            {
-                label: 'Recomendaciones',
-                icon: 'pi pi-pencil',
+    //         },
+    //         {
+    //             label: 'Recomendaciones',
+    //             icon: 'pi pi-pencil',
 
-            },
-            {
-                label: 'Embajadas',
-                icon: 'pi pi-pencil',
+    //         },
+    //         {
+    //             label: 'Embajadas',
+    //             icon: 'pi pi-pencil',
 
-            },
-            {
-                label: 'Tel Emergencias',
-                icon: 'pi pi-pencil',
+    //         },
+    //         {
+    //             label: 'Tel Emergencias',
+    //             icon: 'pi pi-pencil',
 
-            },
-            {
-                label: 'Oficinas de turismo',
-                icon: 'pi pi-pencil',
+    //         },
+    //         {
+    //             label: 'Oficinas de turismo',
+    //             icon: 'pi pi-pencil',
 
-            },
+    //         },
 
-        ]
-    },
-    {
-        label: 'Turismo',
-        icon: 'pi pi-map',
-        items: [
-            {
-                label: 'Registro Empresa',
-                icon: 'pi pi-bolt',
+    //     ]
+    // },
+    // {
+    //     label: 'Turismo',
+    //     icon: 'pi pi-map',
+    //     items: [
+    //         {
+    //             label: 'Registro Empresa',
+    //             icon: 'pi pi-bolt',
 
-            },
-            {
-                label: 'Ingreso Usuario',
-                icon: 'pi pi-server',
+    //         },
+    //         {
+    //             label: 'Ingreso Usuario',
+    //             icon: 'pi pi-server',
 
-            },
-            {
-                label: 'Modificar Registro',
-                icon: 'pi pi-pencil',
+    //         },
+    //         {
+    //             label: 'Modificar Registro',
+    //             icon: 'pi pi-pencil',
 
-            },
-            {
-                label: 'Soporte',
-                icon: 'pi pi-pencil',
+    //         },
+    //         {
+    //             label: 'Soporte',
+    //             icon: 'pi pi-pencil',
 
-            },
-            {
-                label: 'Como Registrarme',
-                icon: 'pi pi-pencil',
+    //         },
+    //         {
+    //             label: 'Como Registrarme',
+    //             icon: 'pi pi-pencil',
 
-            },
-            {
-                label: 'Ventajas',
-                icon: 'pi pi-pencil',
+    //         },
+    //         {
+    //             label: 'Ventajas',
+    //             icon: 'pi pi-pencil',
 
-            }
+    //         }
 
-        ]
-    }, {
-        label: 'Contáctenos',
-        icon: 'pi pi-phone',
-        items: [
-            {
-                label: 'Quienes Somos',
-                icon: 'pi pi-bolt',
+    //     ]
+    // }, {
+    //     label: 'Contáctenos',
+    //     icon: 'pi pi-phone',
+    //     items: [
+    //         {
+    //             label: 'Quienes Somos',
+    //             icon: 'pi pi-bolt',
 
-            },
-            {
-                label: 'Publicidad',
-                icon: 'pi pi-server',
+    //         },
+    //         {
+    //             label: 'Publicidad',
+    //             icon: 'pi pi-server',
 
-            }
+    //         }
 
 
-        ]
-    }
+    //     ]
+    // }
 ]);
 </script>
