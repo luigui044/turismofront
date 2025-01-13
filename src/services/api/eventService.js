@@ -4,10 +4,11 @@ export const eventService = {
     async getEvents(categoryId, limit) {
         try {
             let query = `/eventos?`;
-            query += 'populate=imagenes';
+            query += 'populate=imagenes&populate=empresa';
 
             if (categoryId) {
                 query += `&filters[categoria_oferta][$eq]=${categoryId}`;
+
             }
 
 

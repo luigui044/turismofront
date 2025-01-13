@@ -7,8 +7,7 @@
             <div class="col-2 ml-3">
                 <Card>
                     <template #header>
-                        <img alt="oferta"
-                            :src="baseUrl + oferta.attributes.imagenes.data[0].attributes.formats.thumbnail.url"
+                        <img alt="" :src="baseUrl + oferta.attributes.imagenes.data[0].attributes.formats.medium.url"
                             width="100%" />
                     </template>
                     <template #title>{{ oferta.attributes.nombre_evento }}</template>
@@ -20,19 +19,42 @@
                     </template>
                     <template #footer>
 
-                        <Button label="Ver oferta" class="w-full" />
+                        <Button label="Ver detalles" class="w-full" @click="toggleModal(oferta.attributes)" />
 
                     </template>
                 </Card>
             </div>
         </template>
     </div>
+    <ModalComponent v-model:visible="dialogVisible" :title="title" :headerBg="headerBg"
+        :headerColorText="headerColorText">
+        <template #body>
+            <div class="py-2">
+                <img alt="" :src="baseUrl + imgEvent" width="100%" />
+                <span style="font-size: 11px;">Publicado por: <router-link>{{ publishedBy }}</router-link> </span>
+                <p><b>Descripción: </b>{{ descripcionEvento }}</p>
+                <p><b>Desde:</b> {{ formatearFecha(fechaIni) }} <b>Hasta:</b> {{ formatearFecha(fechaFin) }}</p>
+                <a :href="eventUrl" target="_blank" rel="noopener noreferrer">
+                    <Button class="button">Visitar página del evento</Button>
+                </a>
 
+            </div>
+        </template>
+
+    </ModalComponent>
 </template>
 <script setup>
+import ModalComponent from '@/components/ModalComponent.vue';
+import { ref } from 'vue';
+
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
-
+const headerBg = '#084c61'
+const headerColorText = '#fff'
+const eventUrl = ref();
+const visible = ref(false);
+const title = ref(null);
+const descripcionEvento = ref(null);
 const props = defineProps({
     events: {
         type: Array,
@@ -46,6 +68,21 @@ function formatearFecha(fecha) {
     const anio = fechaObj.getFullYear();
     return `${dia}-${mes}-${anio}`;
 }
-
-console.log(props.events)
+const dialogVisible = ref(false);
+const imgEvent = ref()
+const fechaIni = ref()
+const fechaFin = ref()
+const publishedBy = ref()
+function toggleModal(oferta) {
+    dialogVisible.value = true;
+    title.value = oferta.nombre_evento;
+    console.log(oferta)
+    imgEvent.value = oferta.imagenes.data[0].attributes.formats.large.url
+    descripcionEvento.value = oferta.descripcion[0]?.children[0]?.text
+    fechaFin.value = oferta.fecha_final
+    fechaIni.value = oferta.fecha_inicio
+    publishedBy.value = oferta.empresa.data.attributes.nombre_comercial
+    eventUrl.value = oferta.url_evento
+}
 </script>
+<style scoped></style>

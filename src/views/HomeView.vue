@@ -40,18 +40,19 @@
     </div>
     <div class="grid-nogutter">
       <div class="col-10 text-left py-2 pl-6 my-3">
-        <h2 style="text-shadow: 2px 3px 5px black; background-color: #084c61; display: inline;"
-          class="edu-au-vic-wa-nt-pre-text px-3 py-1 border-round text-white">Próximos eventos</h2>
+        <h2 style="text-shadow: 2px 3px 5px black; display: inline;"
+          class="edu-au-vic-wa-nt-pre-text px-3 py-1 border-round text-white event-custom-bg">Próximos eventos</h2>
       </div>
       <div class="col-2  py-2 my-3"> <router-link to="eventos">Ver más eventos...</router-link></div>
     </div>
     <SectionEventos :events="events" />
   </main>
+
+
 </template>
 
 <script setup lang="ts">
 import SectionBlog from '@/components/home/SectionBlog.vue';
-
 import { ref, onMounted } from "vue";
 import { postService } from "@/services/api/postService";
 import { offertsService } from "@/services/api/ofertService";

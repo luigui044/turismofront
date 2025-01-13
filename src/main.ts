@@ -26,7 +26,7 @@ import { createI18n } from 'vue-i18n';
 import SectionLugares from '@/components/home/SectionLugares.vue';
 import SectionOfertas from '@/components/home/SectionOfertas.vue';
 import SectionEventos from '@/components/home/SectionEventos.vue';
-
+import Dialog from 'primevue/dialog';
 
 const i18n = createI18n({
     locale: 'es', // Idioma por defecto
@@ -59,6 +59,7 @@ app.component('Logo', Logo);
 app.component('Video', Video);
 app.component('Button', Button);
 app.component('Textarea', Textarea);
+app.component('Dialog', Dialog);
 app.directive('ripple', Ripple);
 app.component('FloatLabel', FloatLabel);
 app.mount('#app');
