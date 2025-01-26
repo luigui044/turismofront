@@ -30,7 +30,7 @@
         :headerColorText="headerColorText">
         <template #body>
             <div class="py-2">
-                <img alt="" :src="baseUrl + imgEvent" width="100%" />
+                <img alt="" :src="baseUrl + imgEvent" class="custoImg" width="100%" />
                 <span style="font-size: 11px;">Publicado por: <router-link>{{ publishedBy }}</router-link> </span>
                 <p><b>Descripción: </b>{{ descripcionEvento }}</p>
                 <p><b>Desde:</b> {{ formatearFecha(fechaIni) }} <b>Hasta:</b> {{ formatearFecha(fechaFin) }}</p>
@@ -76,7 +76,7 @@ const publishedBy = ref()
 function toggleModal(oferta) {
     dialogVisible.value = true;
     title.value = oferta.nombre_evento;
-    console.log(oferta)
+    // console.log(oferta)
     imgEvent.value = oferta.imagenes.data[0].attributes.formats.large.url
     descripcionEvento.value = oferta.descripcion[0]?.children[0]?.text
     fechaFin.value = oferta.fecha_final
@@ -85,4 +85,8 @@ function toggleModal(oferta) {
     eventUrl.value = oferta.url_evento
 }
 </script>
-<style scoped></style>
+<style scoped>
+.custoImg {
+    border-radius: 25px;
+}
+</style>

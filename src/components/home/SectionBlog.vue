@@ -23,7 +23,7 @@
                     </template>
                     <template #content>
                         <div class="grid">
-                            <div class="col-4">
+                            <div class="md:col-5 col-4">
                                 <!-- {{
                                     'http://localhost:1337' +
                                     post.attributes.imagen_miniatura.data.attributes.formats.thumbnail.url
@@ -32,7 +32,7 @@
                                     alt="ruta-flores" style="width: 269px;height: 151px;">
                                 <span style="font-size: 12px;"> {{ post.attributes.pie_foto }}</span>
                             </div>
-                            <div class="col-8 justify-content-left">
+                            <div class="md:col-7 col-8 justify-content-left">
                                 <p class="m-0 text-justify">
                                     {{ post.attributes.descripcion_post }}
                                 </p>

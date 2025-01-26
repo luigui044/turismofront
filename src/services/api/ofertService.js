@@ -4,7 +4,7 @@ export const offertsService = {
     async getOfferts(categoryId, limit) {
         try {
             let query = `/ofertas?`;
-            query += 'populate=imagenes';
+            query += 'populate=imagenes&populate=empresa';
 
             if (categoryId) {
                 query += `&filters[categoria_oferta][$eq]=${categoryId}`;
