@@ -1,10 +1,10 @@
 <template>
 
-    <div class="grid-nogutter justify-content-left pl-6 text-center  ">
+    <div class="grid-nogutter justify-content-center text-center  ">
 
         <template v-for="(oferta, index) in events" :key="index" class="">
 
-            <div class="col-2 ml-3">
+            <div class="col-3 px-4 py-2">
                 <Card>
                     <template #header>
                         <img alt="" :src="baseUrl + oferta.attributes.imagenes.data[0].attributes.formats.medium.url"
@@ -13,9 +13,9 @@
                     <template #title>{{ oferta.attributes.nombre_evento }}</template>
                     <template #subtitle>
                         <p> desde {{ formatearFecha(oferta.attributes.fecha_inicio)
-                            }}</p>
+                        }}</p>
                         <p> hasta {{ formatearFecha(oferta.attributes.fecha_final)
-                            }}</p>
+                        }}</p>
                     </template>
                     <template #footer>
 
@@ -59,7 +59,11 @@ const props = defineProps({
     events: {
         type: Array,
         default: null,
-    }
+    },
+    orderByCategory: {
+        type: Boolean,
+        default: false,
+    },
 })
 function formatearFecha(fecha) {
     const fechaObj = new Date(fecha);

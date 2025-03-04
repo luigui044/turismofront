@@ -1,7 +1,7 @@
 <template>
     <div class="grid-nogutter bg-custom-primary arial-black-font mt-5">
         <div class="lg:col-12 text-center">
-            <p> Buscador mundial de turismo </p>
+            <!-- <p> Buscador mundial de turismo </p> -->
             <p> ¡Todos los paraísos del planeta, los encuentras aquí!</p>
             <div class="grid-nogutter py-6">
                 <div class="lg:col-4 border-right-1">

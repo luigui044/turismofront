@@ -3,15 +3,22 @@ import httpClient from '../httpClient';
 export const postService = {
     async getPostByCategory(categoryId, limit) {
         try {
-            let query = `/posts?`;
+            const params = new URLSearchParams();
 
             if (categoryId) {
-                query += `filters[categories][$eq]=${categoryId}`;
+                params.append('filters[categories][$eq]', categoryId);
             }
 
-            query += '&populate=user_published&populate=post_coments&populate=imagen_miniatura';
+            if (limit) {
+                params.append('pagination[limit]', limit);
+            }
 
+            // Manejo correcto de populate con JSON
+            params.append('populate', 'user_published,post_coments,imagen_miniatura');
+
+            const query = `/posts?${params.toString()}`;
             const response = await httpClient.get(query);
+
             return {
                 success: true,
                 data: response.data,
@@ -27,17 +34,18 @@ export const postService = {
     },
 
     async getPostBySlug(slug) {
-
         try {
-            let query = `/posts?`;
+            const params = new URLSearchParams();
 
             if (slug) {
-                query += `filters[slug][$eq]=${slug}`;
+                params.append('filters[slug][$eq]', slug);
             }
 
-            query += '&populate=multimedia';
+            params.append('populate', 'multimedia');
 
+            const query = `/posts?${params.toString()}`;
             const response = await httpClient.get(query);
+
             return {
                 success: true,
                 data: response.data,

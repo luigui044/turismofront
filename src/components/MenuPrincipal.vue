@@ -1,5 +1,5 @@
 <template>
-    <div class="grid-nogutter">
+    <div class="grid-nogutter ">
         <div class="lg:col-12 bg-custom-primary">
             <Menubar :model="items">
                 <template #start>
@@ -28,7 +28,13 @@
             </Menubar>
 
         </div>
+        <div class="lg:col-12 px-4 py-3">
+            <AnuncioBanner />
+
+        </div>
+
         <div class="lg:col-12">
+
             <Video :videoUrl="'/videos/videobannerSV.mp4'" />
 
 
@@ -41,7 +47,7 @@
 <script setup>
 import { ref } from "vue";
 import Logo from "./Logo.vue";
-
+import AnuncioBanner from "./AnuncioBanner.vue";
 const items = ref([
     {
         label: 'Inicio',
@@ -49,105 +55,110 @@ const items = ref([
         to: '/'
 
     },
-    // {
-    //     label: 'Noticias',
-    //     icon: 'pi pi-comments'
-    // },
-    // {
-    //     label: 'El Salvador',
-    //     icon: 'pi pi-map-marker',
-    //     items: [
-    //         {
-    //             label: 'Información',
-    //             icon: 'pi pi-bolt',
+    {
+        label: 'Noticias',
+        icon: 'pi pi-comments',
+        to: '/noticias'
+    },
+    {
+        label: 'El Salvador',
+        icon: 'pi pi-map-marker',
+        to: '/',
+        items: [
+            {
+                label: 'Información',
+                icon: 'pi pi-bolt',
+                to: '/',
+            },
+            {
+                label: 'Ingresar al país',
+                icon: 'pi pi-server',
+                to: '/',
+            },
+            {
+                label: 'Bio Seguridad',
+                icon: 'pi pi-pencil',
+                to: '/',
+            },
+            {
+                label: 'Recomendaciones',
+                icon: 'pi pi-pencil',
+                to: '/',
+            },
+            {
+                label: 'Embajadas',
+                icon: 'pi pi-pencil',
+                to: '/',
+            },
+            {
+                label: 'Tel Emergencias',
+                icon: 'pi pi-pencil',
+                to: '/',
+            },
+            {
+                label: 'Oficinas de turismo',
+                icon: 'pi pi-pencil',
+                to: '/',
+            },
 
-    //         },
-    //         {
-    //             label: 'Ingresar al país',
-    //             icon: 'pi pi-server',
+        ]
+    },
+    {
+        label: 'Turismo',
+        icon: 'pi pi-map',
+        to: '/',
+        items: [
+            {
+                label: 'Registro Empresa',
+                icon: 'pi pi-bolt',
+                to: '/',
+            },
+            {
+                label: 'Ingreso Usuario',
+                icon: 'pi pi-server',
+                to: '/',
+            },
+            {
+                label: 'Modificar Registro',
+                icon: 'pi pi-pencil',
+                to: '/',
+            },
+            {
+                label: 'Soporte',
+                icon: 'pi pi-pencil',
+                to: '/',
+            },
+            {
+                label: 'Como Registrarme',
+                icon: 'pi pi-pencil',
+                to: '/',
+            },
+            {
+                label: 'Ventajas',
+                icon: 'pi pi-pencil',
+                to: '/',
+            },
 
-    //         },
-    //         {
-    //             label: 'Bio Seguridad',
-    //             icon: 'pi pi-pencil',
+        ]
+    }, {
+        label: 'Contáctenos',
+        icon: 'pi pi-phone',
+        to: '/',
+        items: [
+            {
+                label: 'Quienes Somos',
+                icon: 'pi pi-bolt',
+                to: '/',
 
-    //         },
-    //         {
-    //             label: 'Recomendaciones',
-    //             icon: 'pi pi-pencil',
-
-    //         },
-    //         {
-    //             label: 'Embajadas',
-    //             icon: 'pi pi-pencil',
-
-    //         },
-    //         {
-    //             label: 'Tel Emergencias',
-    //             icon: 'pi pi-pencil',
-
-    //         },
-    //         {
-    //             label: 'Oficinas de turismo',
-    //             icon: 'pi pi-pencil',
-
-    //         },
-
-    //     ]
-    // },
-    // {
-    //     label: 'Turismo',
-    //     icon: 'pi pi-map',
-    //     items: [
-    //         {
-    //             label: 'Registro Empresa',
-    //             icon: 'pi pi-bolt',
-
-    //         },
-    //         {
-    //             label: 'Ingreso Usuario',
-    //             icon: 'pi pi-server',
-
-    //         },
-    //         {
-    //             label: 'Modificar Registro',
-    //             icon: 'pi pi-pencil',
-
-    //         },
-    //         {
-    //             label: 'Soporte',
-    //             icon: 'pi pi-pencil',
-
-    //         },
-    //         {
-    //             label: 'Como Registrarme',
-    //             icon: 'pi pi-pencil',
-
-    //         },
-    //         {
-    //             label: 'Ventajas',
-    //             icon: 'pi pi-pencil',
-
-    //         }
-
-    //     ]
-    // }, {
-    //     label: 'Contáctenos',
-    //     icon: 'pi pi-phone',
-    //     items: [
-    //         {
-    //             label: 'Quienes Somos',
-    //             icon: 'pi pi-bolt',
-
-    //         },
-    //         {
-    //             label: 'Publicidad',
-    //             icon: 'pi pi-server',
-
-    //         }
+            },
+            {
+                label: 'Publicidad',
+                icon: 'pi pi-server',
+                to: '/',
+            }
 
 
-    //     ]
-    // }
+        ]
+    }
 ]);
 </script>

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import MenuPrincipal from './components/MenuPrincipal.vue';
 import Footer from './components/Footer.vue';
 
 </script>
 
 <template>
-  <header>
+  <header class="custom-header">
     <MenuPrincipal />
   </header>
 
@@ -18,11 +18,6 @@ import Footer from './components/Footer.vue';
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
 .logo {
   display: block;
   margin: 0 auto 2rem;

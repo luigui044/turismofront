@@ -29,17 +29,14 @@ import SectionEventos from '@/components/home/SectionEventos.vue';
 import Dialog from 'primevue/dialog';
 
 const i18n = createI18n({
+    legacy: false, // Desactiva la API Legacy
     locale: 'es', // Idioma por defecto
-    fallbackLocale: 'en', // Idioma de respaldo
     messages: {
-        en: {
-            hello: 'Hello World',
-        },
-        es: {
-            hello: 'Hola Mundo',
-        },
-    },
-});
+        en: { welcome: 'Welcome' },
+        es: { welcome: 'Bienvenido' }
+    }
+})
+
 const app = createApp(App)
 
 app.use(PrimeVue);

@@ -13,17 +13,16 @@
       </div>
 
     </div>
+    <SectionLugares />
 
+    <div class="px-8 mt-4">
+      <!-- <hr> -->
+    </div>
     <div v-if="posts">
-
       <SectionBlog :posts="posts" />
     </div>
     <div class="px-8 mt-4">
-      <hr>
-    </div>
-    <SectionLugares />
-    <div class="px-8 mt-4">
-      <hr>
+      <AnuncioBanner />
     </div>
     <div class="grid-nogutter">
       <div class="col-10 text-left py-2 pl-6 my-3">
@@ -53,6 +52,7 @@
 
 <script setup lang="ts">
 import SectionBlog from '@/components/home/SectionBlog.vue';
+import AnuncioBanner from '@/components/AnuncioBanner.vue';
 import { ref, onMounted } from "vue";
 import { postService } from "@/services/api/postService";
 import { offertsService } from "@/services/api/ofertService";

@@ -8,36 +8,38 @@
 
 
 
-            <div class="col-6 px-2">
+            <div class="col-3 text-center px-2">
                 <Card class="shadow-8">
                     <template #title>
                         {{ post.attributes.title }}
                         <br>
+                        <span style="font-size:12px">publicado: {{ new
+                            Date(post.attributes.publishedAt).toLocaleDateString('es-ES', {
+                                year: 'numeric', month:
+                                    'long', day: 'numeric'
+                            }) }} </span>
+                        <br>
                         <span style="font-size:12px">Por: {{ post.attributes.user_published.data.attributes.username }}
-                            | publicado: {{ new
-                                Date(post.attributes.publishedAt).toLocaleDateString('es-ES', {
-                                    year: 'numeric', month:
-                                        'long', day: 'numeric'
-                                }) }} | <i class="pi pi-comment"></i> {{ post.attributes.post_coments.data.length }}
+                            | <i class="pi pi-comment"></i> {{ post.attributes.post_coments.data.length }}
                         </span>
                     </template>
                     <template #content>
                         <div class="grid">
-                            <div class="md:col-5 col-4">
+                            <div class="md:col-12 col-6">
                                 <!-- {{
                                     'http://localhost:1337' +
                                     post.attributes.imagen_miniatura.data.attributes.formats.thumbnail.url
                                 }} -->
                                 <img :src="baseUrl + post.attributes.imagen_miniatura.data.attributes.formats.thumbnail.url"
-                                    alt="ruta-flores" style="width: 269px;height: 151px;">
+                                    alt="ruta-flores" style="width: 269px;height: 151px;"><br>
                                 <span style="font-size: 12px;"> {{ post.attributes.pie_foto }}</span>
                             </div>
-                            <div class="md:col-7 col-8 justify-content-left">
+                            <!-- <div class="md:col-7 col-8 justify-content-left">
                                 <p class="m-0 text-justify">
                                     {{ post.attributes.descripcion_post }}
                                 </p>
 
-                            </div>
+                            </div> -->
                         </div>
 
 
@@ -65,7 +67,6 @@
 </template>
 
 <script setup>
-import Rflores from '@/assets/rflores.jpg'
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
 defineProps({
