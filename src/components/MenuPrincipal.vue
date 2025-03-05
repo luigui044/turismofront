@@ -6,17 +6,23 @@
                     <Logo />
                 </template>
                 <template #item="{ item, props, hasSubmenu, root }">
-                    <router-link :to="item.to" v-ripple class="flex align-items-center" v-bind="props.action">
-                        <span :class="item.icon" />
-                        <span class="ml-2">{{ item.label }}</span>
-                        <Badge v-if="item.badge" :class="{ 'ml-auto': !root, 'ml-2': root }" :value="item.badge" />
-                        <span v-if="item.shortcut"
-                            class="ml-auto border-1 surface-border border-round surface-100 text-xs p-1">{{
-                                item.shortcut
-                            }}</span>
+                    <div class="flex align-items-center w-full custom-class">
+                        <router-link :to="item.to" v-ripple class="flex align-items-center flex-grow-1"
+                            v-bind="props.action">
+                            <span :class="item.icon" />
+                            <span class="ml-2">{{ item.label }}</span>
+                            <Badge v-if="item.badge" :class="{ 'ml-auto': !root, 'ml-2': root }" :value="item.badge" />
+                            <span v-if="item.shortcut"
+                                class="ml-1 border-1 surface-border border-round surface-100 text-xs p-1">
+                                {{ item.shortcut }}
+                            </span>
+                        </router-link>
+
                         <i v-if="hasSubmenu"
-                            :class="['pi pi-angle-down', { 'pi-angle-down ml-2': root, 'pi-angle-right ml-auto': !root }]"></i>
-                    </router-link>
+                            :class="['pi pi-angle-down cursor-pointer text-white', { 'pi-angle-down ': root, 'pi-angle-right': !root }]"
+                            v-bind="props.action">
+                        </i>
+                    </div>
                 </template>
                 <template #end>
                     <div class="flex align-items-center gap-2">
@@ -63,12 +69,12 @@ const items = ref([
     {
         label: 'El Salvador',
         icon: 'pi pi-map-marker',
-        to: '/',
+        to: '/el-salvador',
         items: [
             {
                 label: 'Información',
                 icon: 'pi pi-bolt',
-                to: '/',
+                to: '/el-salvador',
             },
             {
                 label: 'Ingresar al país',
@@ -162,3 +168,14 @@ const items = ref([
     }
 ]);
 </script>
+
+<style scoped>
+.custom-class {
+    color: white;
+}
+
+:deep(.custom-class:hover),
+:deep(.pi:hover) {
+    color: #084C61 !important;
+}
+</style>
