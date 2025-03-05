@@ -6,7 +6,7 @@ export const eventService = {
             const params = new URLSearchParams();
 
             // `populate` en una sola línea para múltiples relaciones
-            params.append('populate', 'imagenes,empresa');
+            params.append('populate', 'imagenes,empresa,empresa.categoria_turismo');
 
             if (categoryId) {
                 params.append('filters[categoria_evento][$eq]', categoryId); // Asegúrate de que la clave es correcta

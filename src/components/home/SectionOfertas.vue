@@ -2,39 +2,59 @@
     <div class="grid-nogutter  pl-6 text-center">
         <!-- Verifica si la propiedad orderByCategory es true -->
         <template v-if="props.orderByCategory">
-            <!-- Itera sobre las categorías agrupadas -->
-            <template v-for="(ofertasPorCategoria, categoria) in ofertasPorCategoria" :key="categoria">
-                <!-- Mostrar el nombre de la categoría en un h2 -->
-                <div class="grid w-full">
-                    <div class="col-12">
-                        <h2 class="text-xl font-bold mb-3">{{ categoria }}</h2>
-                    </div>
-                </div>
+            <div class="col-10">
+                <!-- Itera sobre las categorías agrupadas -->
+                <template v-for="(oCategoria, categoria, index) in ofertasPorCategoria" :key="categoria">
+                    <!-- Mostrar el nombre de la categoría en un h2 -->
+                    <div class="grid w-full">
+                        <div class="col-12">
+                            <h2 style="text-shadow: 2px 3px 5px black; display: inline;"
+                                class="edu-au-vic-wa-nt-pre-text px-3 py-1 border-round text-white event-custom-bg">{{
+                                    categoria }}</h2>
 
-                <!-- Mostrar ofertas por categoría -->
-                <div class="grid justify-content-left">
-
-                    <template v-for="(oferta, index) in ofertasPorCategoria" :key="index">
-
-                        <div class="col-3  px-4 py-2">
-                            <Card>
-                                <template #header>
-                                    <img alt="oferta"
-                                        :src="baseUrl + oferta.attributes.imagenes.data[0].attributes.formats.medium.url"
-                                        width="100%" />
-                                </template>
-                                <template #title>{{ oferta.attributes.nombre_oferta }}</template>
-                                <template #subtitle>Válido hasta {{ formatearFecha(oferta.attributes.fecha_final)
-                                    }}</template>
-                                <template #footer>
-                                    <Button label="Ver detalles" class="w-full"
-                                        @click="toggleModal(oferta.attributes)" />
-                                </template>
-                            </Card>
                         </div>
-                    </template>
-                </div>
-            </template>
+                    </div>
+
+                    <!-- Mostrar ofertas por categoría -->
+                    <div class="grid w-full">
+                        <div class="col-12">
+                            <div class="flex flex-wrap">
+                                <template v-for="(oferta, index) in oCategoria" :key="index">
+                                    <div style="width: 25%;" class="p-2">
+                                        <Card>
+                                            <template #header>
+                                                <img alt="oferta"
+                                                    :src="baseUrl + oferta.attributes.imagenes.data[0].attributes.formats.medium.url"
+                                                    width="100%" />
+                                            </template>
+                                            <template #title>{{ oferta.attributes.nombre_oferta }}</template>
+                                            <template #subtitle>Válido hasta {{
+                                                formatearFecha(oferta.attributes.fecha_final) }}</template>
+                                            <template #footer>
+                                                <Button label="Ver detalles" class="w-full"
+                                                    @click="toggleModal(oferta.attributes)" />
+                                            </template>
+                                        </Card>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mostrar banner después del segundo grupo o del primero si no hay segundo -->
+                    <div v-if="index === 1 || (index === 0 && Object.keys(ofertasPorCategoria).length === 1)"
+                        class="col-12">
+                        <img :src="banner" alt="banner" width="100%" class="mb-2" />
+                    </div>
+
+                </template>
+            </div>
+            <div class="col-2 px-2">
+
+                <img :src="bannerVertical" alt="bannerVertical" width="100%" />
+
+                <SocialComponents />
+            </div>
         </template>
 
         <!-- Si no se agrupan por categoría, mostrar todas las ofertas sin agrupar -->
@@ -83,7 +103,8 @@
 <script setup>
 import ModalComponent from '@/components/ModalComponent.vue';
 import { ref, computed, onMounted } from 'vue';
-
+import bannerVertical from '@/assets/adsdefault/bannerVertical1.png';
+import banner from '@/assets/adsdefault/banner1.png';
 const title = ref(null);
 const baseUrl = import.meta.env.VITE_BASE_URL;
 const headerBg = '#e3b505';
@@ -129,25 +150,37 @@ const ofertasPorCategoria = computed(() => {
 function formatearFecha(fecha) {
     const fechaObj = new Date(fecha);
     const dia = fechaObj.getDate().toString().padStart(2, '0');
-    const mes = (fechaObj.getMonth() + 1).toString().padStart(2, '0'); // Los meses comienzan en 0
+    const mes = (fechaObj.getMonth() + 1).toString().padStart(2, '0');
     const anio = fechaObj.getFullYear();
     return `${dia}-${mes}-${anio}`;
-}
-
-function toggleModal(oferta) {
-    dialogVisible.value = true;
-    title.value = oferta.nombre_oferta;
-    imgEvent.value = oferta.imagenes.data[0].attributes.formats.large.url;
-    descripcionEvento.value = oferta.descripcion[0]?.children[0]?.text;
-    fechaFin.value = oferta.fecha_final;
-    fechaIni.value = oferta.fecha_inicio;
-    publishedBy.value = oferta.empresa.data.attributes.nombre_comercial;
-    eventUrl.value = oferta.url_evento;
 }
 </script>
 
 <style scoped>
-.custoImg {
-    border-radius: 25px;
+:deep(.p-card) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+:deep(.p-card-body) {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+:deep(.p-card-content) {
+    flex-grow: 1;
+}
+
+:deep(.p-card-header) {
+    height: 200px;
+    overflow: hidden;
+}
+
+:deep(.p-card-header img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 </style>

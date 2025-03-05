@@ -4,10 +4,7 @@
             <h2 style="text-shadow: 2px 3px 5px black; background-color: #56A3A6; display: inline;"
                 class="edu-au-vic-wa-nt-pre-text px-3 py-1 border-round text-white"> Disfruta El Salvador</h2>
         </div>
-        <template v-for="post in posts">
-
-
-
+        <template v-for="post in posts" :key="post.id">
             <div class="col-3 text-center px-2">
                 <Card class="shadow-8">
                     <template #title>

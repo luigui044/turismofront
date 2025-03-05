@@ -76,7 +76,7 @@ const fetchPosts = async () => {
 
 const fetchOfferts = async () => {
   try {
-    const response = await offertsService.getOfferts();
+    const response = await offertsService.getOfferts(false, 12);
     if (response.success) {
 
       offerts.value = response?.data?.data || []
@@ -90,7 +90,7 @@ const fetchOfferts = async () => {
 
 const fetchEvents = async () => {
   try {
-    const response = await eventService.getEvents();
+    const response = await eventService.getEvents(false, 8);
     if (response.success) {
 
       events.value = response?.data?.data || []
