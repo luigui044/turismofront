@@ -44,8 +44,7 @@
                     <template #footer>
                         <div>
 
-                            <router-link :to="{ name: 'blog', params: { slug: post.attributes.slug, post: 'algo' } }"
-                                rel="noopener">
+                            <router-link :to="{ name: 'blog', params: { slug: post.attributes.slug } }" rel="noopener">
                                 <Button label="Leer más" raised icon="pi pi-eye"></Button>
                             </router-link>
                             <a style="text-decoration: none;" :href="post.attributes.waze_url"

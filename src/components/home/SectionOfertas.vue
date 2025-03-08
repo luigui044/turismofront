@@ -1,5 +1,5 @@
 <template>
-    <div class="grid-nogutter  pl-6 text-center">
+    <div class="grid-nogutter   text-center">
         <!-- Verifica si la propiedad orderByCategory es true -->
         <template v-if="props.orderByCategory">
             <div class="col-10">
@@ -59,7 +59,7 @@
 
         <!-- Si no se agrupan por categoría, mostrar todas las ofertas sin agrupar -->
         <template v-else>
-            <div class="grid">
+            <div class="grid-nogutter">
                 <template v-for="(oferta, index) in offerts" :key="index">
                     <div class="col-3 px-4 py-2">
                         <Card>
@@ -70,7 +70,7 @@
                             </template>
                             <template #title>{{ oferta.attributes.nombre_oferta }}</template>
                             <template #subtitle>Válido hasta {{ formatearFecha(oferta.attributes.fecha_final)
-                                }}</template>
+                            }}</template>
                             <template #footer>
                                 <Button label="Ver detalles" class="w-full" @click="toggleModal(oferta.attributes)" />
                             </template>

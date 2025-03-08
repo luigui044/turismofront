@@ -45,6 +45,8 @@
       <div class="col-2  py-2 my-3"> <router-link to="eventos">Ver más eventos...</router-link></div>
     </div>
     <SectionEventos :events="events" />
+
+    <gadgetsComponent />
   </main>
 
 
@@ -57,6 +59,7 @@ import { ref, onMounted } from "vue";
 import { postService } from "@/services/api/postService";
 import { offertsService } from "@/services/api/ofertService";
 import { eventService } from '@/services/api/eventService';
+import gadgetsComponent from '@/components/gadgetsComponent.vue';
 const posts = ref([]);
 const offerts = ref([]);
 const events = ref([])

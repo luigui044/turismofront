@@ -1,73 +1,68 @@
 <template>
-    <div>
-        <!-- Renderiza solo si `post` tiene un valor -->
-        <div class="grid" style="margin: 0;">
-            <div class="col-9">
-                <div class="grid px-4" v-if="post">
-                    <div class="col-12 px-8">
-                        <h1 v-if="post">{{ post.attributes.title }}</h1>
+
+    <!-- Renderiza solo si `post` tiene un valor -->
+    <div class="px-2" style="margin: 0;">
+
+
+        <h1 v-if="post">{{ post.attributes.title }}</h1>
+        <p v-else>Cargando...</p>
+        <img :src="banner" alt="banner" class="w-full" style="height: 100px;">
+
+        <div class="grid-nogutter">
+
+            <div class="col-10">
+                <div class="card  text-center">
+
+                    <div v-if="images.length" class="justify-content-center">
+                        <!-- Galería -->
+                        <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5"
+                            containerStyle="max-width:100%">
+                            <template #item="slotProps">
+                                <img :src="slotProps.item.url ? slotProps.item.url : 'fail/src'"
+                                    :alt="slotProps.item.hash" style="width: 100%; height: 550px;" />
+                            </template>
+                            <template #thumbnail="slotProps">
+                                <img :src="slotProps.item.thumbnail" :alt="slotProps.item.hash"
+                                    style="width: 10rem !important; height: 5rem;" />
+                            </template>
+                        </Galleria>
                     </div>
-                    <div class="col-12 ">
-                        <div class="card px-8 text-center">
-
-                            <div v-if="images.length" class="justify-content-center">
-                                <!-- Galería -->
-                                <Galleria :value="images" :responsiveOptions="responsiveOptions" :numVisible="5"
-                                    containerStyle="max-width:100%">
-                                    <template #item="slotProps">
-                                        <img :src="slotProps.item.url ? slotProps.item.url : 'fail/src'"
-                                            :alt="slotProps.item.hash" style="width: 100%; height: 550px;" />
-                                    </template>
-                                    <template #thumbnail="slotProps">
-                                        <img :src="slotProps.item.thumbnail" :alt="slotProps.item.hash"
-                                            style="width: 10rem !important; height: 5rem;" />
-                                    </template>
-                                </Galleria>
-                            </div>
-                            <p v-else>No hay imágenes para mostrar.</p>
-                        </div>
+                    <p v-else>No hay imágenes para mostrar.</p>
+                </div>
 
 
-                        <div v-if="post" class="text-justify px-8">
-                            <div v-for="(contentItem, index) in post.attributes.content" :key="index">
-                                <p v-for="(childrenText, indexChild) in contentItem.children">
-                                    {{ childrenText.text }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 px-8">
-                        <FloatLabel>
-                            <Textarea id="comentario" rows="5" cols="30" style="width: 100%;resize: none;"></Textarea>
-                            <label for="comentario">Deja tu comentario</label>
-                        </FloatLabel>
-                        <Button label="Enviar comentario" severity="info" class="mt-2" raised />
+                <div v-if="post" class="text-justify ">
+                    <div v-for="(contentItem, index) in post.attributes.content" :key="index">
+                        <p v-for="(childrenText, indexChild) in contentItem.children">
+                            {{ childrenText.text }}
+                        </p>
                     </div>
                 </div>
+                <ComentariosComponent :commentsWith="'w-3'" />
+
             </div>
-            <div class="col-3 pt-8 ">
-                <div class="grid">
-                    <div class="col-12"> <a v-if="post" style="text-decoration: none;" :href="post.attributes.waze_url"
-                            class="w-full block text-center p-button p-button-info" target="_blank" rel="noopener"><span
-                                class="pi pi-map-marker mr-2"></span> Como llegar</a></div>
-
-                    <div class="col-12">
-
-                        <SocialComponents />
-
-                    </div>
-                </div>
+            <div class="col-2 px-4 pt-4">
+                <a v-if="post" style="text-decoration: none;" :href="post.attributes.waze_url"
+                    class="w-full block text-center p-button p-button-info" target="_blank" rel="noopener"><span
+                        class="pi pi-map-marker mr-2"></span> Como llegar
+                </a>
+                <SocialComponents />
+                <img :src="bannerVertical" alt="banner" class="w-full h-auto">
             </div>
         </div>
 
-
     </div>
+
+
+
 </template>
 
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import { postService } from "@/services/api/postService";
-
+import ComentariosComponent from "@/components/ComentariosComponent.vue";
+import banner from '@/assets/adsdefault/banner1.png';
+import bannerVertical from '@/assets/adsdefault/bannerVertical1.png';
 const props = defineProps({
     slug: String
 });

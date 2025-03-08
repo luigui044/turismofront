@@ -1,5 +1,5 @@
 <template>
-    <div class="grid-nogutter pl-6 text-center">
+    <div class="grid-nogutter  text-center">
         <!-- Verifica si la propiedad orderByCategory es true -->
 
         <template v-if="props.orderByCategory">
@@ -61,7 +61,7 @@
 
         <!-- Si no se agrupan por categoría, mostrar todos los eventos sin agrupar -->
         <template v-else>
-            <div class="grid">
+            <div class="grid-nogutter">
                 <template v-for="(evento, index) in events" :key="index">
                     <div class="col-3 px-4 py-2">
                         <Card>

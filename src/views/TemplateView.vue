@@ -71,7 +71,7 @@ const fetchEvents = async () => {
             const response = await eventService.getEvents();
             if (response.success) {
                 events.value = response.data.data || [];
-                console.log("Eventos obtenidos:", events.value);
+                // console.log("Eventos obtenidos:", events.value);
             }
         }
     } catch (error) {
