@@ -51,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref, onMounted, defineAsyncComponent } from "vue";
 import { postService } from "@/services/api/postService";
 import { offertsService } from "@/services/api/ofertService";
 import { eventService } from '@/services/api/eventService';
@@ -70,7 +70,8 @@ const props = defineProps({
 const fetchPosts = async () => {
   try {
     const response = await postService.getPostByCategory(1, 4);
-    if (response.success) {
+    if (
+      response.success) {
       // console.log("Posts obtenidos:", response.data.data); // Verifica los datos obtenidos
       posts.value = response.data.data;
     } else {
@@ -109,10 +110,11 @@ const fetchEvents = async () => {
   }
 }
 
-const SectionBlog = () => import('@/components/home/SectionBlog.vue')
-const SectionOfertas = () => import('@/components/home/SectionOfertas.vue')
-const SectionEventos = () => import('@/components/home/SectionEventos.vue')
-const SectionLugares = () => import('@/components/home/SectionLugares.vue')
+// Definir los componentes asíncronos correctamente
+const SectionBlog = defineAsyncComponent(() => import('@/components/home/SectionBlog.vue'))
+const SectionOfertas = defineAsyncComponent(() => import('@/components/home/SectionOfertas.vue'))
+const SectionEventos = defineAsyncComponent(() => import('@/components/home/SectionEventos.vue'))
+const SectionLugares = defineAsyncComponent(() => import('@/components/home/SectionLugares.vue'))
 
 onMounted(() => {
 

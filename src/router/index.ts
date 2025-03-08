@@ -14,8 +14,21 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/el-salvador',
-    name: 'el-salvador',
-    component: CountryView
+    children: [
+      {
+        path: '',
+        name: 'el-salvador',
+        component: HomeView,
+        props: {
+          country: 1
+        }
+      },
+      {
+        path: 'informacion',
+        name: 'informacion',
+        component: CountryView
+      }
+    ]
   },
   {
     path: '/noticias',
