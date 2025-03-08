@@ -53,7 +53,7 @@
 
                 <img :src="bannerVertical" alt="bannerVertical" width="100%" />
 
-                <SocialComponents />
+                <ShareSocialComponents />
             </div>
         </template>
 

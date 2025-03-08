@@ -34,9 +34,7 @@
       </div>
     </div>
     <SectionOfertas :offerts="offerts" />
-    <div class="px-8 mt-4">
-      <hr>
-    </div>
+
     <div class="grid-nogutter">
       <div class="col-10 text-left py-2 pl-6 my-3">
         <h2 style="text-shadow: 2px 3px 5px black; display: inline;"
@@ -46,23 +44,29 @@
     </div>
     <SectionEventos :events="events" />
 
-    <gadgetsComponent />
+    <gadgetsComponent v-if="props.country === 1" />
   </main>
 
 
 </template>
 
 <script setup lang="ts">
-import SectionBlog from '@/components/home/SectionBlog.vue';
-import AnuncioBanner from '@/components/AnuncioBanner.vue';
 import { ref, onMounted } from "vue";
 import { postService } from "@/services/api/postService";
 import { offertsService } from "@/services/api/ofertService";
 import { eventService } from '@/services/api/eventService';
 import gadgetsComponent from '@/components/gadgetsComponent.vue';
+
 const posts = ref([]);
 const offerts = ref([]);
 const events = ref([])
+
+const props = defineProps({
+  country: {
+    type: Number,
+  }
+})
+
 const fetchPosts = async () => {
   try {
     const response = await postService.getPostByCategory(1, 4);
@@ -105,6 +109,10 @@ const fetchEvents = async () => {
   }
 }
 
+const SectionBlog = () => import('@/components/home/SectionBlog.vue')
+const SectionOfertas = () => import('@/components/home/SectionOfertas.vue')
+const SectionEventos = () => import('@/components/home/SectionEventos.vue')
+const SectionLugares = () => import('@/components/home/SectionLugares.vue')
 
 onMounted(() => {
 

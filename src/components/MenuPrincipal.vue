@@ -74,7 +74,7 @@ const items = ref([
             {
                 label: 'Información',
                 icon: 'pi pi-bolt',
-                to: '/el-salvador',
+                to: '/el-salvador/informacion',
             },
             {
                 label: 'Ingresar al país',

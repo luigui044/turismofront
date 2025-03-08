@@ -30,7 +30,7 @@ import { createI18n } from 'vue-i18n';
 import SectionLugares from '@/components/home/SectionLugares.vue';
 import SectionOfertas from '@/components/home/SectionOfertas.vue';
 import SectionEventos from '@/components/home/SectionEventos.vue';
-import SocialComponents from '@/components/SocialComponents.vue';
+import ShareSocialComponents from '@/components/ShareSocialComponents.vue';
 import Toast from 'primevue/toast';
 import ToastService from 'primevue/toastservice';
 import Dialog from 'primevue/dialog';
@@ -54,7 +54,7 @@ app.use(ToastService);
 app.component('SectionLugares', SectionLugares);
 app.component('SectionOfertas', SectionOfertas);
 app.component('SectionEventos', SectionEventos);
-app.component('SocialComponents', SocialComponents);
+app.component('ShareSocialComponents', ShareSocialComponents);
 app.component('Menubar', Menubar);
 app.component('Galleria', Galleria);
 app.component('Badge', Badge)

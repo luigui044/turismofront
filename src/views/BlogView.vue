@@ -46,7 +46,7 @@
                     class="w-full block text-center p-button p-button-info" target="_blank" rel="noopener"><span
                         class="pi pi-map-marker mr-2"></span> Como llegar
                 </a>
-                <SocialComponents />
+                <ShareSocialComponents />
                 <img :src="bannerVertical" alt="banner" class="w-full h-auto">
             </div>
         </div>
@@ -128,22 +128,4 @@ onMounted(() => {
 });
 </script>
 
-<style>
-.social-network {
-    display: flex;
-    align-items: center;
-    color: white;
-    cursor: pointer;
-
-    i {
-        padding: 1rem;
-        background-color: rgba(0, 0, 0, 0.3);
-    }
-
-    span {
-        font-weight: 700;
-        padding: 0.7rem;
-        text-shadow: 2px 1px 2px rgb(0 0 0 / 80%);
-    }
-}
-</style>
+<style></style>

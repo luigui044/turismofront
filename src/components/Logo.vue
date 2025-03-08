@@ -11,5 +11,7 @@ const props = defineProps({
 
 <template>
     <!-- Usar la propiedad 'image' en el atributo src -->
-    <img :src="image" id="logoImg" alt="turismo-mas" :style="{ width: props.customWidth }">
+    <router-link to="/">
+        <img :src="image" id="logoImg" alt="turismo-mas" :style="{ width: props.customWidth }">
+    </router-link>
 </template>

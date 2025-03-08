@@ -55,7 +55,7 @@
             </div>
             <div class="col-2 px-2">
                 <img :src="bannerVertical" alt="bannerVertical" width="100%" />
-                <SocialComponents />
+                <ShareSocialComponents />
             </div>
         </template>
 

@@ -47,3 +47,22 @@ const sharingInfo = {
         'https://images.unsplash.com/photo-1708283508253-337621680a84?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
 };
 </script>
+<style scoped>
+:deep(.social-network) {
+    display: flex !important;
+    align-items: center !important;
+    color: white !important;
+    cursor: pointer;
+
+    i {
+        padding: 1rem;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    span {
+        font-weight: 700;
+        padding: 0.7rem;
+        text-shadow: 2px 1px 2px rgb(0 0 0 / 80%);
+    }
+}
+</style>
