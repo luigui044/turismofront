@@ -3,7 +3,7 @@
         <div class="lg:col-12 text-center">
             <!-- <p> Buscador mundial de turismo </p> -->
             <p> ¡Todos los paraísos del planeta, los encuentras aquí!</p>
-            <div class="grid-nogutter py-6">
+            <div class="grid-nogutter py-2">
                 <div class="lg:col-4 border-right-1">
                     <Logo customWidth="15rem" />
                     <br>
@@ -18,8 +18,8 @@
 
                 </div>
                 <div class="lg:col-4">
-                    marketing@turismomas.com <br>
-                    publicidad@turismomas.com
+                    <p> marketing@turismomas.com </p>
+                    <p> publicidad@turismomas.com</p>
 
                 </div>
             </div>

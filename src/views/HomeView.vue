@@ -13,13 +13,11 @@
       </div>
 
     </div>
-    <SectionLugares />
+    <SectionPaises v-if="props.country === 99" />
+    <SectionLugares v-else />
 
-    <div class="px-8 mt-4">
-      <!-- <hr> -->
-    </div>
     <div v-if="posts">
-      <SectionBlog :posts="posts" />
+      <SectionBlog v-if="props.country === 1 || props.country === 0" :posts="posts" />
     </div>
     <div class="px-8 mt-4">
       <AnuncioBanner />
@@ -44,7 +42,7 @@
     </div>
     <SectionEventos :events="events" />
 
-    <gadgetsComponent v-if="props.country === 1" />
+    <gadgetsComponent v-if="props.country === 1 || props.country === 99" />
   </main>
 
 
@@ -56,7 +54,7 @@ import { postService } from "@/services/api/postService";
 import { offertsService } from "@/services/api/ofertService";
 import { eventService } from '@/services/api/eventService';
 import gadgetsComponent from '@/components/gadgetsComponent.vue';
-
+import SectionPaises from '@/components/home/SectionPaises.vue';
 const posts = ref([]);
 const offerts = ref([]);
 const events = ref([])
@@ -64,6 +62,7 @@ const events = ref([])
 const props = defineProps({
   country: {
     type: Number,
+    default: 0
   }
 })
 

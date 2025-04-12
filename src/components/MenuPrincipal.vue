@@ -51,9 +51,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import Logo from "./Logo.vue";
 import AnuncioBanner from "./AnuncioBanner.vue";
+import { menuService } from "../services/api/menuServices";
+
+const menus = ref([]);
+
+onMounted(async () => {
+
+    
+    const response = await menuService.getMenu();
+    menus.value = response;
+
+});
+
 const items = ref([
     {
         label: 'Inicio',

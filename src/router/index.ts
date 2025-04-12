@@ -13,6 +13,14 @@ const routes: RouteRecordRaw[] = [
     component: HomeView
   },
   {
+    path: '/international',
+    name: 'international',
+    component: HomeView,
+    props: {
+      country: 99
+    }
+  },
+  {
     path: '/el-salvador',
     children: [
       {
