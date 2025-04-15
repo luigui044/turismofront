@@ -1,15 +1,17 @@
 <template>
     <div class="px-2">
-        <h1 class="edu-au-vic-wa-nt-pre-text" v-if="pais && pais.data">
-            {{ pais.data.attributes.titular }}
-        </h1>
 
-        <p v-else>Cargando...</p>
-
-        <img :src="banner" alt="banner" class="w-full" style="height: 100px;">
 
         <div class="grid-nogutter">
-            <div class="col-10">
+
+            <div class="col-10 px-6">
+                <h1 class="playfair-display-bold title-country" v-if="pais && pais.data">
+                    {{ pais.data.attributes.titular }}
+                </h1>
+
+                <p v-else>Cargando...</p>
+
+                <img :src="banner" alt="banner" class="w-full" style="height: 100px;">
                 <template v-if="pais && pais.data">
                     <template v-for="item in pais.data.attributes.historia" :key="item.id">
                         <template v-for="child in item.children" :key="child.id">
@@ -68,3 +70,11 @@ onMounted(() => {
     fetchCountry();
 });
 </script>
+
+
+<style>
+.title-country {
+    font-size: 4rem;
+    color: #000;
+}
+</style>

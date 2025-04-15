@@ -34,6 +34,7 @@ import ShareSocialComponents from '@/components/ShareSocialComponents.vue';
 import Toast from 'primevue/toast';
 import ToastService from 'primevue/toastservice';
 import Dialog from 'primevue/dialog';
+import AnuncioBanner from '@/components/AnuncioBanner.vue';
 
 const i18n = createI18n({
     legacy: false, // Desactiva la API Legacy
@@ -64,6 +65,7 @@ app.component('InputNumber', InputNumber);
 app.component('Dropdown', Dropdown);
 app.component('ProgressBar', ProgressBar);
 app.component('ProgressSpinner', ProgressSpinner);
+app.component('AnuncioBanner', AnuncioBanner);
 app.component('Card', Card);
 app.component('Logo', Logo);
 app.component('Video', Video);

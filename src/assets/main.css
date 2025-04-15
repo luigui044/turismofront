@@ -1,4 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Lilita+One&family=Permanent+Marker&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Boogaloo&family=Delius+Unicase:wght@400;700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Lilita+One&family=Permanent+Marker&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+
+
+.playfair-display-regular {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.playfair-display-bold {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
 .anton-regular {
   font-family: "Anton", sans-serif;
   font-weight: 400;
@@ -48,28 +66,73 @@ flex-wrap: wrap;
 }
 
 
+
+.logo {
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+nav a.router-link-exact-active {
+  color: var(--color-text);
+}
+
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
+}
+
+nav a:first-of-type {
+  border: 0;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .logo {
+    margin: 0 2rem 0 0;
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    text-align: left;
+    margin-left: -1rem;
+    font-size: 1rem;
+
+    padding: 1rem 0;
+    margin-top: 1rem;
+  }
+}
+
 .p-menubar{
     background-color: #084C61;
     border:none
 }
 
 
-a.p-menuitem-link{
-    font-weight: bold;
-    color: white !important;
-}
-
-a.p-menuitem-link:hover{
-    color: #084C61 !important;
-}
 
 
-li.p-menuitem.p-menuitem-active.p-highlight div.p-menuitem-content a.p-menuitem-link
-{
-    color: #084C61 !important;
-}
-
-.bg-custom-primary, .p-submenu-list li.p-menuitem div.p-menuitem-content a.p-menuitem-link:hover{
+.bg-custom-primary {
        background-color: #084C61;
         color: white !important;
 }
