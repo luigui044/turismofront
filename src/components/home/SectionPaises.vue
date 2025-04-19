@@ -1,7 +1,7 @@
 <template>
-    <div class="grid-nogutter">
+    <div class="grid-nogutter  justify-content-center ">
         <template v-for="country in countries" :key="country.id">
-            <div class="col-3 p-6  text-center">
+            <div class="col-12 xs:col-12 sm:col-12 md:col-6 lg:col-3 p-2 lg:p-6 text-center">
                 <Card class="country-card shadow-8">
                     <template #header class="">
                         <img :src="baseUrl + country?.attributes?.img_miniatura?.data?.attributes?.url"
@@ -51,7 +51,7 @@ const countries = ref<Country[]>([]);
 onMounted(async () => {
     const response = await countryServices.getAllCountries();
     countries.value = response.data;
-    console.log(countries.value);
+    // console.log(countries.value);
 
 });
 </script>

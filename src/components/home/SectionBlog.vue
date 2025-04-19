@@ -1,11 +1,11 @@
 <template>
-    <div class="grid-nogutter  px-6">
-        <div class="col-12 py-2 my-3">
+    <div class="grid-nogutter px-6">
+        <div class="col-12 text-center lg:text-left py-2 my-3">
             <h2 style="text-shadow: 2px 3px 5px black; background-color: #56A3A6; display: inline;"
                 class="edu-au-vic-wa-nt-pre-text px-3 py-1 border-round text-white"> Disfruta El Salvador</h2>
         </div>
         <template v-for="post in posts" :key="post.id">
-            <div class="col-3 text-center px-2">
+            <div class="col-12 xs:col-12 sm:col-3 lg:col-3 text-center px-0  lg:px-2 mb-3 lg:mb-0 ">
                 <Card class="shadow-8">
                     <template #title>
                         {{ post.attributes.title }}
@@ -42,14 +42,18 @@
 
                     </template>
                     <template #footer>
-                        <div>
-
-                            <router-link :to="{ name: 'blog', params: { slug: post.attributes.slug } }" rel="noopener">
-                                <Button label="Leer más" raised icon="pi pi-eye"></Button>
-                            </router-link>
-                            <a style="text-decoration: none;" :href="post.attributes.waze_url"
-                                class="ml-4 p-button p-button-info" target="_blank" rel="noopener"><span class="pi
-                                    pi-map-marker mr-2"></span> Como llegar</a>
+                        <div class="grid">
+                            <div class="col-12 xs:col-6 sm:col-6 lg:col-6">
+                                <router-link :to="{ name: 'blog', params: { slug: post.attributes.slug } }"
+                                    rel="noopener">
+                                    <Button label="Leer más" raised icon="pi pi-eye" class="w-full lg:w-auto"></Button>
+                                </router-link>
+                            </div>
+                            <div class="col-12 xs:col-6 sm:col-6 lg:col-6">
+                                <Button label="Como llegar" icon="pi pi-map-marker"
+                                    class="w-full lg:w-auto p-button-info" @click="openWaze(post.attributes.waze_url)"
+                                    raised />
+                            </div>
                         </div>
                     </template>
                 </Card>
@@ -68,4 +72,10 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
 defineProps({
     posts: Array
 })
+
+const openWaze = (url) => {
+    if (url) {
+        window.open(url, '_blank');
+    }
+}
 </script>

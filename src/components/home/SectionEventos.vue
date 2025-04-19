@@ -63,7 +63,7 @@
         <template v-else>
             <div class="grid-nogutter">
                 <template v-for="(evento, index) in events" :key="index">
-                    <div class="col-3 px-4 py-2">
+                    <div class="col-12 lg:col-3 px-4 py-2">
                         <Card>
                             <template #header>
                                 <img alt="evento"

@@ -76,7 +76,8 @@ const obtenerMenu = async () => {
     const menuId = props.internacional;
 
     const response = await menuService.getMenu(menuId);
-    console.log(response.data);
+    // console.log(response.data);
+
     for (const item of response.data) {
         menu.value.push({
             to: item.attributes.to,
@@ -85,7 +86,7 @@ const obtenerMenu = async () => {
             badge: item.attributes.badge,
             orden: item.attributes.orden,
             item_padre: item.attributes.item_padre,
-            items: item.attributes.t_menu_subitems.data?.length ? item.attributes.t_menu_subitems.data.map((subitem: any) => ({
+            items: item?.attributes?.t_menu_subitems?.data?.length ? item.attributes.t_menu_subitems.data.map((subitem: any) => ({
                 to: subitem.attributes.to,
                 icon: subitem.attributes.icon,
                 label: subitem.attributes.label,
@@ -96,7 +97,7 @@ const obtenerMenu = async () => {
 
     }
 
-    console.log(menu.value);
+    // console.log(menu.value);
 };
 
 

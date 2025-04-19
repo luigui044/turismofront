@@ -1,20 +1,17 @@
 <template>
   <main>
     <div class="grid-nogutter justify-content-center align-center bg-svg">
-      <div class="col-8 text-center py-4">
+      <div class="col-12 text-center py-4">
         <p style="font-size: 35px;text-shadow: 6px 4px 20px black; " class="anton-regular  text-white">
-          Encuentra más de 40 categoría de empresas
-          de
-          turismo y afines, <br> para
-          que disfrutes los paraísos de El
-          Salvador</p>
-        <InputText placeholder="Que buscas!" type="text" class="w-full" />
+          Encuentra más de 40 categoría de empresas de turismo y afines, para que disfrutes los paraísos de El Salvador
+        </p>
+        <InputText placeholder="Que buscas!" type="text" class="w-4" />
 
       </div>
 
     </div>
-    <SectionPaises v-if="props.country === 99" />
-    <SectionLugares v-else />
+    <SectionPaises />
+    <SectionLugares />
 
     <div v-if="posts">
       <SectionBlog v-if="props.country === 1 || props.country === 0" :posts="posts" />
@@ -28,7 +25,12 @@
           class="edu-au-vic-wa-nt-pre-text px-3 py-1 border-round text-white">Ofertas de la Semana</h2>
       </div>
       <div class="col-2  py-2 my-3">
-        <router-link to="ofertas">Ver más ofertas...</router-link>
+        <router-link to="ofertas">
+          <Button class=" p-button-info text-white hover:text-yellow-300" raised>
+            <i class="pi pi-arrow-right mr-2"></i>
+            Ver más ofertas...
+          </Button>
+        </router-link>
       </div>
     </div>
     <SectionOfertas :offerts="offerts" />
@@ -38,7 +40,14 @@
         <h2 style="text-shadow: 2px 3px 5px black; display: inline;"
           class="edu-au-vic-wa-nt-pre-text px-3 py-1 border-round text-white event-custom-bg">Próximos eventos</h2>
       </div>
-      <div class="col-2  py-2 my-3"> <router-link to="eventos">Ver más eventos...</router-link></div>
+      <div class="col-2  py-2 my-3">
+        <router-link to="eventos">
+          <Button class=" p-button-info text-white hover:text-yellow-300" raised>
+            <i class="pi pi-arrow-right mr-2"></i>
+            Ver más eventos...
+          </Button>
+        </router-link>
+      </div>
     </div>
     <SectionEventos :events="events" />
 

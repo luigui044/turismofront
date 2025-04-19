@@ -61,7 +61,7 @@
         <template v-else>
             <div class="grid-nogutter">
                 <template v-for="(oferta, index) in offerts" :key="index">
-                    <div class="col-3 px-4 py-2">
+                    <div class="col-12 lg:col-3 px-4 py-2">
                         <Card>
                             <template #header>
                                 <img alt="oferta"
