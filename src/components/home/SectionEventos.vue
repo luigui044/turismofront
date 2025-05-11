@@ -4,12 +4,12 @@
 
         <template v-if="props.orderByCategory">
 
-            <div class="col-10">
+            <div class="col-12 lg:col-10">
                 <!-- Itera sobre las categorías agrupadas -->
                 <template v-for="(eCategoria, categoria, index) in eventosPorCategoria" :key="categoria">
                     <!-- Mostrar el nombre de la categoría en un h2 -->
                     <div class="grid w-full">
-                        <div class="col-12">
+                        <div class="col-12 ">
                             <h2 style="text-shadow: 2px 3px 5px black; background-color: #E3B505; display: inline;"
                                 class="edu-au-vic-wa-nt-pre-text px-3 py-1 border-round text-white">{{ categoria }}
                             </h2>
@@ -22,7 +22,7 @@
                         <div class="col-12">
                             <div class="flex flex-wrap">
                                 <template v-for="(evento, index) in eCategoria" :key="index">
-                                    <div style="width: 25%;" class="p-2">
+                                    <div :style="isMobile() ? 'width: 100%;' : 'width: 25%;'" class="p-2">
                                         <Card>
                                             <template #header>
                                                 <img alt="evento"
@@ -53,7 +53,7 @@
                     </div>
                 </template>
             </div>
-            <div class="col-2 px-2">
+            <div class="col-12 lg:col-2 px-2">
                 <img :src="bannerVertical" alt="bannerVertical" width="100%" />
                 <ShareSocialComponents />
             </div>
@@ -91,7 +91,7 @@
         <template #body>
             <div class="py-2">
                 <div class="w-full text-center">
-                    <img class="custoImg" alt="" :src="baseUrl + imgEvent" width="300rem" /><br>
+                    <img class="custoImg" alt="" :src="baseUrl + imgEvent" width="100%" /><br>
                 </div>
                 <span style="font-size: 11px;">Publicado por: <router-link>{{ publishedBy }}</router-link> </span>
                 <p><b>Descripción: </b>{{ descripcionEvento }}</p>
@@ -168,6 +168,9 @@ function toggleModal(evento) {
     fechaIni.value = evento.fecha_inicio;
     publishedBy.value = evento.empresa.data.attributes.nombre_comercial;
     eventUrl.value = evento.url_evento;
+}
+function isMobile() {
+    return window.innerWidth < 768;
 }
 </script>
 

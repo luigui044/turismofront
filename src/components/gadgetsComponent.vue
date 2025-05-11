@@ -1,15 +1,15 @@
 <template>
     <div class="grid-nogutter px-6 mt-4">
-        <div class="col-3 px-2">
+        <div class="col-12 lg:col-3 lg:px-2">
             <CurrencyConverter class="gadget-item" />
         </div>
-        <div class="col-3 px-2">
+        <div class="col-12 lg:col-3 lg:px-2">
             <BitcoinTracker class="gadget-item" />
         </div>
-        <div class="col-3 px-2">
+        <div class="col-12 lg:col-3 lg:px-2">
             <StockTracker class="gadget-item" />
         </div>
-        <div class="col-3 px-2">
+        <div class="col-12 lg:col-3 lg:px-2">
             <RegisterAdBanner class="gadget-item" />
         </div>
     </div>

@@ -19,5 +19,8 @@ export default defineConfig({
     },
     strictPort: true, // opcional: evita puertos aleatorios
     port: 5173,        // puedes cambiarlo si el 5173 está ocupado
+  },
+  build: {
+    sourcemap: false,
   }
 })

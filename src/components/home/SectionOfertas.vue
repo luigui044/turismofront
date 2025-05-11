@@ -2,7 +2,7 @@
     <div class="grid-nogutter   text-center">
         <!-- Verifica si la propiedad orderByCategory es true -->
         <template v-if="props.orderByCategory">
-            <div class="col-10">
+            <div class="col-12 lg:col-10">
                 <!-- Itera sobre las categorías agrupadas -->
                 <template v-for="(oCategoria, categoria, index) in ofertasPorCategoria" :key="categoria">
                     <!-- Mostrar el nombre de la categoría en un h2 -->
@@ -19,20 +19,21 @@
                     <div class="grid w-full">
                         <div class="col-12">
                             <div class="flex flex-wrap">
-                                <template v-for="(oferta, index) in oCategoria" :key="index">
-                                    <div style="width: 25%;" class="p-2">
+                                <template v-for="(oferta, index) in oCategoria" :key="oferta.id || index">
+                                    <div :style="isMobile() ? 'width: 100%;' : 'width: 25%;'" class="p-2">
                                         <Card>
                                             <template #header>
                                                 <img alt="oferta"
-                                                    :src="baseUrl + oferta.attributes.imagenes.data[0].attributes.formats.medium.url"
+                                                    :src="baseUrl + (oferta?.attributes?.imagenes?.data?.[0]?.attributes?.formats?.medium?.url || '')"
                                                     width="100%" />
+
                                             </template>
-                                            <template #title>{{ oferta.attributes.nombre_oferta }}</template>
+                                            <template #title>{{ oferta?.attributes?.nombre_oferta }}</template>
                                             <template #subtitle>Válido hasta {{
-                                                formatearFecha(oferta.attributes.fecha_final) }}</template>
+                                                formatearFecha(oferta?.attributes?.fecha_final) }}</template>
                                             <template #footer>
                                                 <Button label="Ver detalles" class="w-full"
-                                                    @click="toggleModal(oferta.attributes)" />
+                                                    @click="toggleModal(oferta?.attributes)" />
                                             </template>
                                         </Card>
                                     </div>
@@ -49,7 +50,7 @@
 
                 </template>
             </div>
-            <div class="col-2 px-2">
+            <div class="col-12 lg:col-2 px-2">
 
                 <img :src="bannerVertical" alt="bannerVertical" width="100%" />
 
@@ -65,14 +66,14 @@
                         <Card>
                             <template #header>
                                 <img alt="oferta"
-                                    :src="baseUrl + oferta.attributes.imagenes.data[0].attributes.formats.medium.url"
+                                    :src="baseUrl + (oferta?.attributes?.imagenes?.data?.[0]?.attributes?.formats?.medium?.url || '')"
                                     width="100%" />
                             </template>
-                            <template #title>{{ oferta.attributes.nombre_oferta }}</template>
-                            <template #subtitle>Válido hasta {{ formatearFecha(oferta.attributes.fecha_final)
+                            <template #title>{{ oferta?.attributes?.nombre_oferta }}</template>
+                            <template #subtitle>Válido hasta {{ formatearFecha(oferta?.attributes?.fecha_final)
                             }}</template>
                             <template #footer>
-                                <Button label="Ver detalles" class="w-full" @click="toggleModal(oferta.attributes)" />
+                                <Button label="Ver detalles" class="w-full" @click="toggleModal(oferta?.attributes)" />
                             </template>
                         </Card>
                     </div>
@@ -87,7 +88,7 @@
         <template #body>
             <div class="py-2">
                 <div class="w-full text-center">
-                    <img class="custoImg" alt="" :src="baseUrl + imgEvent" width="300rem" /><br>
+                    <img class="custoImg" alt="" :src="baseUrl + imgEvent" width="100%" /><br>
                 </div>
                 <span style="font-size: 11px;">Publicado por: <router-link>{{ publishedBy }}</router-link> </span>
                 <p><b>Descripción: </b>{{ descripcionEvento }}</p>
@@ -135,7 +136,7 @@ const ofertasPorCategoria = computed(() => {
     const agrupado = {};
 
     props.offerts.forEach(oferta => {
-        const categoria = oferta.attributes.empresa.data.attributes.categoria_turismo.data.attributes.nombre || 'Sin Categoría';
+        const categoria = oferta?.attributes?.empresa?.data?.attributes?.categoria_turismo?.data?.attributes?.nombre || 'Sin Categoría';
 
         if (!agrupado[categoria]) {
             agrupado[categoria] = [];
@@ -154,6 +155,22 @@ function formatearFecha(fecha) {
     const anio = fechaObj.getFullYear();
     return `${dia}-${mes}-${anio}`;
 }
+function isMobile() {
+    return window.innerWidth < 768;
+}
+
+function toggleModal(oferta) {
+    console.log(oferta);
+    dialogVisible.value = true;
+    title.value = oferta?.nombre_oferta || '';
+    imgEvent.value = oferta?.imagenes?.data?.[0]?.attributes?.formats?.large?.url || '';
+    descripcionEvento.value = oferta?.descripcion?.[0]?.children?.[0]?.text || '';
+    fechaFin.value = oferta?.fecha_final || '';
+    fechaIni.value = oferta?.fecha_inicio || '';
+    publishedBy.value = oferta?.empresa?.data?.attributes?.nombre_comercial || '';
+    eventUrl.value = oferta?.url_oferta || '';
+}
+
 </script>
 
 <style scoped>
@@ -182,5 +199,9 @@ function formatearFecha(fecha) {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.custoImg {
+    border-radius: 25px;
 }
 </style>

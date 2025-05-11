@@ -2,11 +2,11 @@
     <div class="pb-4">
         <!-- Encabezado dinámico -->
         <div class="grid-nogutter">
-            <div class="col-12 text-center py-2 pl-6 mb-3"
+            <div class="col-12 text-center py-1 lg:py-2 lg:pl-6 mb-3 "
                 :style="{ backgroundColor: route.name === 'ofertas' ? '#E3B505' : '#084c61' }">
-                <h1 class="edu-au-vic-wa-nt-pre-text px-3 py-1 border-round text-white"
+                <h1 class="edu-au-vic-wa-nt-pre-text text-3xl lg:text-4xl lg:px-3 py-1 border-round text-white"
                     style="text-shadow: 2px 3px 5px black; display: inline; font-size: 45px;">
-                    {{ route.name === 'ofertas' ? 'Ofertas de la semana' : 'Próximos eventos' }}
+                    {{ route.name === 'ofertas' ? 'Ofertas de la semana' : 'Lugares recomendados' }}
                 </h1>
             </div>
         </div>

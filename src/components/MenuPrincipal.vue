@@ -1,9 +1,9 @@
 <template>
     <div class="grid-nogutter ">
-        <div class="lg:col-12 bg-custom-primary">
+        <div class="col-12 lg:col-12 bg-custom-primary">
             <Menubar :model="menu">
                 <template #start>
-                    <Logo />
+                    <Logo :customWidth="isMobile() ? '6rem' : '10rem'" />
                 </template>
                 <template #item="{ item, props, hasSubmenu, root }">
 
@@ -19,12 +19,12 @@
 
             </Menubar>
         </div>
-        <div class="lg:col-12 px-4 py-3">
+        <div class=" col-12 lg:col-12 lg:px-4 lg:py-3">
             <AnuncioBanner />
 
         </div>
 
-        <div class="lg:col-12">
+        <div class="col-12 lg:col-12">
 
             <Video :videoUrl="'/videos/videobannerSV.mp4'" />
 
@@ -62,6 +62,7 @@ const props = defineProps({
 });
 
 onMounted(() => {
+    //  console.log('internacional', props.internacional);
     obtenerMenu();
 });
 
@@ -70,6 +71,11 @@ watch(() => props.internacional, () => {
     obtenerMenu();
 });
 
+const versionMobile = ref(false);
+
+function isMobile() {
+    return window.innerWidth < 768;
+}
 
 const obtenerMenu = async () => {
 
@@ -80,12 +86,12 @@ const obtenerMenu = async () => {
 
     for (const item of response.data) {
         menu.value.push({
-            to: item.attributes.to,
-            icon: item.attributes.icon,
-            label: item.attributes.label,
-            badge: item.attributes.badge,
-            orden: item.attributes.orden,
-            item_padre: item.attributes.item_padre,
+            to: item.attributes.to || '#',
+            icon: item.attributes.icon || '',
+            label: item.attributes.label || '',
+            badge: item.attributes.badge || '',
+            orden: item.attributes.orden || 0,
+            item_padre: item.attributes.item_padre || false,
             items: item?.attributes?.t_menu_subitems?.data?.length ? item.attributes.t_menu_subitems.data.map((subitem: any) => ({
                 to: subitem.attributes.to,
                 icon: subitem.attributes.icon,
@@ -102,120 +108,6 @@ const obtenerMenu = async () => {
 
 
 
-
-// const items = ref([
-//     {
-//         label: 'Inicio',
-//         icon: 'pi pi-home',
-//         to: '/'
-
-//     },
-//     {
-//         label: 'Noticias',
-//         icon: 'pi pi-comments',
-//         to: '/noticias'
-//     },
-//     {
-//         label: 'El Salvador',
-//         icon: 'pi pi-map-marker',
-//         to: '/el-salvador',
-//         items: [
-//             {
-//                 label: 'Información',
-//                 icon: 'pi pi-bolt',
-//                 to: '/el-salvador/informacion',
-//             },
-//             {
-//                 label: 'Ingresar al país',
-//                 icon: 'pi pi-server',
-//                 to: '/',
-//             },
-//             {
-//                 label: 'Bio Seguridad',
-//                 icon: 'pi pi-pencil',
-//                 to: '/',
-//             },
-//             {
-//                 label: 'Recomendaciones',
-//                 icon: 'pi pi-pencil',
-//                 to: '/',
-//             },
-//             {
-//                 label: 'Embajadas',
-//                 icon: 'pi pi-pencil',
-//                 to: '/',
-//             },
-//             {
-//                 label: 'Tel Emergencias',
-//                 icon: 'pi pi-pencil',
-//                 to: '/',
-//             },
-//             {
-//                 label: 'Oficinas de turismo',
-//                 icon: 'pi pi-pencil',
-//                 to: '/',
-//             },
-
-//         ]
-//     },
-//     {
-//         label: 'Turismo',
-//         icon: 'pi pi-map',
-//         to: '/',
-//         items: [
-//             {
-//                 label: 'Registro Empresa',
-//                 icon: 'pi pi-bolt',
-//                 to: '/',
-//             },
-//             {
-//                 label: 'Ingreso Usuario',
-//                 icon: 'pi pi-server',
-//                 to: '/',
-//             },
-//             {
-//                 label: 'Modificar Registro',
-//                 icon: 'pi pi-pencil',
-//                 to: '/',
-//             },
-//             {
-//                 label: 'Soporte',
-//                 icon: 'pi pi-pencil',
-//                 to: '/',
-//             },
-//             {
-//                 label: 'Como Registrarme',
-//                 icon: 'pi pi-pencil',
-//                 to: '/',
-//             },
-//             {
-//                 label: 'Ventajas',
-//                 icon: 'pi pi-pencil',
-//                 to: '/',
-//             },
-
-//         ]
-//     }, {
-//         label: 'Contáctenos',
-//         icon: 'pi pi-phone',
-//         to: '/',
-//         items: [
-//             {
-//                 label: 'Quienes Somos',
-//                 icon: 'pi pi-bolt',
-//                 to: '/',
-
-//             },
-//             {
-//                 label: 'Publicidad',
-//                 icon: 'pi pi-server',
-//                 to: '/',
-//             }
-
-
-//         ]
-//     }
-// ]);
 </script>
 
 <style scoped>
@@ -251,5 +143,53 @@ const obtenerMenu = async () => {
     background: #084C61 !important;
     color: white !important;
 
+}
+
+@media only screen and (max-width: 600px) {
+
+    :deep(.p-menuitem-link) {
+        color: #084C61 !important;
+    }
+
+    :deep(.p-menuitem-link:hover) {
+        background: #084C61 !important;
+        color: white !important;
+    }
+
+    :deep(.p-submenu-list>.p-menuitem>.p-menuitem-content>.p-menuitem-link) {
+
+        color: #084C61 !important;
+
+    }
+
+    :deep(.p-submenu-list>.p-menuitem>.p-menuitem-content>.p-menuitem-link:hover) {
+        background: #084C61 !important;
+        color: white !important;
+
+    }
+
+}
+
+@media only screen and (max-width: 960px) {
+    :deep(.p-menuitem-link) {
+        color: #084C61 !important;
+    }
+
+    :deep(.p-menuitem-link:hover) {
+        background: #084C61 !important;
+        color: white !important;
+    }
+
+    :deep(.p-submenu-list>.p-menuitem>.p-menuitem-content>.p-menuitem-link) {
+
+        color: #084C61 !important;
+
+    }
+
+    :deep(.p-submenu-list>.p-menuitem>.p-menuitem-content>.p-menuitem-link:hover) {
+        background: #084C61 !important;
+        color: white !important;
+
+    }
 }
 </style>

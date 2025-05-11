@@ -1,7 +1,7 @@
 <template>
 
     <!-- Renderiza solo si `post` tiene un valor -->
-    <div class="px-2" style="margin: 0;">
+    <div class="px-1 lg:px-2" style="margin: 0;">
 
 
         <h1 v-if="post">{{ post.attributes.title }}</h1>
@@ -10,7 +10,7 @@
 
         <div class="grid-nogutter">
 
-            <div class="col-10">
+            <div class="col-12 lg:col-10">
                 <div class="card  text-center">
 
                     <div v-if="images.length" class="justify-content-center">
@@ -38,16 +38,16 @@
                         </p>
                     </div>
                 </div>
-                <ComentariosComponent :commentsWith="'w-3'" />
+                <ComentariosComponent :commentsWith="isMobile() ? 'w-6' : 'w-3'" />
 
             </div>
-            <div class="col-2 px-4 pt-4">
+            <div class="col-12 lg:col-2 px-4 pt-4 mt-2 ">
                 <a v-if="post" style="text-decoration: none;" :href="post.attributes.waze_url"
                     class="w-full block text-center p-button p-button-info" target="_blank" rel="noopener"><span
                         class="pi pi-map-marker mr-2"></span> Como llegar
                 </a>
                 <ShareSocialComponents />
-                <img :src="bannerVertical" alt="banner" class="w-full h-auto">
+                <img :src="bannerVertical" alt="banner" class="w-full h-auto mt-2 lg:mt-0">
             </div>
         </div>
 
@@ -79,7 +79,9 @@ const responsiveOptions = ref([
 ]);
 
 
-
+function isMobile() {
+    return window.innerWidth < 768;
+}
 
 // Computed para transformar los datos multimedia en el formato esperado por Galleria
 const images = computed(() => {

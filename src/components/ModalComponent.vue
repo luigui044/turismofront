@@ -1,7 +1,9 @@
 <template>
     <div class="card flex justify-content-center">
-        <Dialog :visible="visible" @update:visible="updateVisible" modal :header="title" :style="{ width: '35vw' }"
-            :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+        <Dialog :visible="visible" @update:visible="updateVisible" modal :header="title"
+            :style="{ width: isMobile() ? '95vw' : '35vw' }"
+            :breakpoints="{ '1199px': '75vw', '575px': '90vw', '400px': '95vw' }">
+
 
             <slot name="body">
                 <span>Content</span>
@@ -40,6 +42,10 @@ const updateVisible = (value) => {
 };
 document.documentElement.style.setProperty('--header-bg-color', props.headerBg || '#fff');
 document.documentElement.style.setProperty('--header-text-color', props.headerColorText || '#fff');
+
+function isMobile() {
+    return window.innerWidth < 768;
+}
 
 </script>
 

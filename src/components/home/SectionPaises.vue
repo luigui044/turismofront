@@ -1,17 +1,18 @@
 <template>
     <div class="grid-nogutter  justify-content-center ">
         <template v-for="country in countries" :key="country.id">
-            <div class="col-12 xs:col-12 sm:col-12 md:col-6 lg:col-3 p-2 lg:p-6 text-center">
+            <div class="col-12 xs:col-12 sm:col-12 md:col-6 lg:col-3 p-2 lg:px-3 text-center">
                 <Card class="country-card shadow-8">
                     <template #header class="">
                         <img :src="baseUrl + country?.attributes?.img_miniatura?.data?.attributes?.url"
                             alt="Imagen del país" class="w-full h-8rem object-cover border-round-md" />
                     </template>
-                    <template #title>
+                    <!-- <template #title>
                         <h3 class="text-xl font-bold m-0">{{ country?.attributes?.nombre }}</h3>
-                    </template>
+                    </template> -->
                     <template #content>
-                        <Button :label="'Visitar ' + country?.attributes?.nombre" class="p-button-raised p-button-info"
+                        <Button :label="'Visita ' + country?.attributes?.nombre"
+                            class="p-button-raised p-button-info custom-font-size"
                             @click="router.push(`/${country?.attributes?.slug}`)">
                             <template #icon>
                                 <i class="pi pi-map-marker mr-2"></i>
@@ -56,4 +57,14 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.custom-font-size {
+    font-size: 1.2rem;
+}
+
+@media (max-width: 1280px) {
+    .custom-font-size {
+        font-size: 0.8rem;
+    }
+}
+</style>

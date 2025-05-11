@@ -5,26 +5,26 @@
                 class="edu-au-vic-wa-nt-pre-text px-3 py-1 border-round text-white">¿Qué quieres hacer
                 hoy?</h2>
         </div>
-        <div class="col-12 px-6 lg:px-8 text-center margins-btn ">
+        <div class="col-12   text-center margins-btn ">
             <Button outlined class="border-2 mb-2 xs:mb-4 lg:mb-0" raised>
-                <img :src="Restaurantes" alt="restaurante" style="width: 8rem;">
+                <img :src="Restaurantes" class="custom-img-size" alt="restaurante">
                 <span>Restaurantes</span>
             </Button>
             <Button outlined class="border-2 mb-2 xs:mb-4 lg:mb-0" raised>
-                <img :src="Hoteles" alt="hoteles" style="width: 8rem;"><br>
+                <img :src="Hoteles" class="custom-img-size" alt="hoteles">
                 <span>Hoteles</span>
 
             </Button>
             <Button outlined class="border-2 mb-2 xs:mb-4 lg:mb-0" raised>
-                <img :src="Turicentros" alt="turicentros" style="width: 8rem;"><br>
+                <img :src="Turicentros" class="custom-img-size" alt="turicentros">
                 <span>Turicentros</span>
             </Button>
             <Button outlined class="border-2 mb-2 xs:mb-4 lg:mb-0" raised>
-                <img :src="CentrosComerciales" alt="centros-comerciales" style="width: 8rem;"><br>
+                <img :src="CentrosComerciales" class="custom-img-size" alt="centros-comerciales">
                 <span>Centros Comerciales</span>
             </Button>
             <Button outlined class="border-2 mb-2 xs:mb-4 lg:mb-0" raised>
-                <img :src="PaquetesTuristicos" alt="paquetes-turisticos" style="width: 8rem;"><br>
+                <img :src="PaquetesTuristicos" class="custom-img-size" alt="paquetes-turisticos">
                 <span>Paquetes Turisticos</span>
             </Button>
         </div>
@@ -38,3 +38,22 @@ import CentrosComerciales from '@/assets/lugares/mapa.png';
 import PaquetesTuristicos from '@/assets/lugares/reserva.png';
 
 </script>
+
+<style scoped>
+.custom-img-size {
+    width: 8rem;
+}
+
+@media (max-width: 1302px) {}
+
+@media (max-width: 1400px) {
+    .custom-img-size {
+        width: 2rem;
+    }
+
+    .margins-btn .p-button {
+        margin-right: 11px !important;
+        width: 230px !important;
+    }
+}
+</style>

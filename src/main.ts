@@ -34,6 +34,7 @@ import ShareSocialComponents from '@/components/ShareSocialComponents.vue';
 import Toast from 'primevue/toast';
 import ToastService from 'primevue/toastservice';
 import Dialog from 'primevue/dialog';
+import DialogService from 'primevue/dialogservice';
 import AnuncioBanner from '@/components/AnuncioBanner.vue';
 
 const i18n = createI18n({
@@ -46,12 +47,13 @@ const i18n = createI18n({
 })
 
 const app = createApp(App)
-
+app.use(createPinia())
 app.use(PrimeVue);
 app.use(router);
 app.use(Vue3SocialSharingPlugin);
 app.use(i18n);
 app.use(ToastService);
+app.use(DialogService);
 app.component('SectionLugares', SectionLugares);
 app.component('SectionOfertas', SectionOfertas);
 app.component('SectionEventos', SectionEventos);
@@ -75,4 +77,5 @@ app.component('Dialog', Dialog);
 app.directive('ripple', Ripple);
 app.component('FloatLabel', FloatLabel);
 app.component('Toast', Toast);
+
 app.mount('#app');

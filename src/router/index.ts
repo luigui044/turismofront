@@ -5,6 +5,7 @@ import NewsView from '../views/NewsView.vue'
 import CountryView from '../views/CountryView.vue'
 import TemplateView from '../views/TemplateView.vue'
 import InConstructionView from '../views/InConstructionView.vue'
+import RegisterView from '../views/RegistroView.vue'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
@@ -36,13 +37,14 @@ const routes: RouteRecordRaw[] = [
       {
         path: '',
         name: 'el-salvador',
-        component: CountryView,
+        component: HomeView,
         props: { country: 2 }
       },
       {
         path: 'informacion',
         name: 'informacion',
-        component: CountryView
+        component: CountryView,
+        props: { country: 2 }
       }
     ]
   },
@@ -55,6 +57,26 @@ const routes: RouteRecordRaw[] = [
     path: '/noticias',
     name: 'news',
     component: NewsView
+  },
+  {
+    path: '/registro-empresa',
+    name: 'registro-empresa',
+    component: RegisterView
+  },
+  {
+    path: '/noticias-el-salvador',
+    name: 'noticias-el-salvador',
+    component: InConstructionView
+  },
+  {
+    path: '/el-salvador/rutas-turisiticas',
+    name: 'rutas-turisticas',
+    component: InConstructionView
+  },
+  {
+    path: '/el-salvaddor/departamentos',
+    name: 'departamentos',
+    component: InConstructionView
   },
   {
     path: '/about',

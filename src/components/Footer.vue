@@ -10,7 +10,7 @@
                     <p class="text-lg"> Buscador mundial de turismo</p>
                 </div>
 
-                <div class="col-12 lg:col-4 border-right-1">
+                <div class="col-12 lg:col-4 lg:border-right-1">
                     Gatineau, Quebec, Canada. <br>
                     Phone: 819-775-0873 <br><br>
 

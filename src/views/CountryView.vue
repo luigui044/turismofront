@@ -1,11 +1,13 @@
 <template>
-    <div class="px-2">
+
+    <div class="lg:px-2">
 
 
         <div class="grid-nogutter">
 
-            <div class="col-10 px-6">
-                <h1 class="playfair-display-bold title-country" v-if="pais && pais.data">
+            <div class="col-12 lg:col-10  px-4 lg:px-6 ">
+                <h1 class="playfair-display-bold title-country text-center lg:text-left text-3xl lg:text-4xl"
+                    v-if="pais && pais.data">
                     {{ pais.data.attributes.titular }}
                 </h1>
 
@@ -19,9 +21,9 @@
                         </template>
                     </template>
                 </template>
-                <ComentariosComponent />
+                <ComentariosComponent :commentsWith="isMobile() ? 'w-8' : 'w-3'" />
             </div>
-            <div class="col-2 px-4">
+            <div class="col-12 lg:col-2 px-4">
                 <div class="text-center mb-4">
                     <h3 class="mb-3">¿Cómo llegar?</h3>
                     <div class="flex flex-column gap-2">
@@ -68,7 +70,17 @@ const fetchCountry = async () => {
 
 onMounted(() => {
     fetchCountry();
+    menuStore.setMenu('nacional');
+
+
 });
+onUnmounted(() => {
+    menuStore.setMenu('internacional');
+});
+
+function isMobile() {
+    return window.innerWidth < 768;
+}
 </script>
 
 

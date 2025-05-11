@@ -7,7 +7,7 @@
 
             <p class="mb-3">¡Regístrala GRATIS y forma parte de nuestra red!</p>
 
-            <a href="https://tm.probalosv.com/" target="_blank" rel="noopener noreferrer"
+            <a href="https://registro.innovasv.net/" target="_blank" rel="noopener noreferrer"
                 style="text-decoration: none;">
                 <Button class="p-button-primary" style="background-color: #56A3A6;">
                     <i class="pi pi-building mr-2"></i>

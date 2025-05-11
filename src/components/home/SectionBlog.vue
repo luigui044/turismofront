@@ -1,11 +1,11 @@
 <template>
     <div class="grid-nogutter px-6">
-        <div class="col-12 text-center lg:text-left py-2 my-3">
+        <div class="col-12 text-center lg:text-left lg:py-2  my-3 ">
             <h2 style="text-shadow: 2px 3px 5px black; background-color: #56A3A6; display: inline;"
-                class="edu-au-vic-wa-nt-pre-text px-3 py-1 border-round text-white"> Disfruta El Salvador</h2>
+                class="edu-au-vic-wa-nt-pre-text px-2 lg:px-3 py-1 border-round text-white"> Disfruta El Salvador</h2>
         </div>
         <template v-for="post in posts" :key="post.id">
-            <div class="col-12 xs:col-12 sm:col-3 lg:col-3 text-center px-0  lg:px-2 mb-3 lg:mb-0 ">
+            <div class="col-12 xs:col-12 sm:col-12 md:col-6 lg:col-6 xl:col-3 text-center px-0  lg:px-2 mb-3   ">
                 <Card class="shadow-8">
                     <template #title>
                         {{ post.attributes.title }}
@@ -21,22 +21,14 @@
                         </span>
                     </template>
                     <template #content>
-                        <div class="grid">
-                            <div class="md:col-12 col-6">
-                                <!-- {{
-                                    'http://localhost:1337' +
-                                    post.attributes.imagen_miniatura.data.attributes.formats.thumbnail.url
-                                }} -->
+                        <div class="grid justify-content-center">
+                            <div class="col-6 md:col-12  text-center ">
+
                                 <img :src="baseUrl + post.attributes.imagen_miniatura.data.attributes.formats.thumbnail.url"
-                                    alt="ruta-flores" style="width: 269px;height: 151px;"><br>
+                                    alt="ruta-flores" class="custom-image"><br>
                                 <span style="font-size: 12px;"> {{ post.attributes.pie_foto }}</span>
                             </div>
-                            <!-- <div class="md:col-7 col-8 justify-content-left">
-                                <p class="m-0 text-justify">
-                                    {{ post.attributes.descripcion_post }}
-                                </p>
 
-                            </div> -->
                         </div>
 
 
@@ -79,3 +71,16 @@ const openWaze = (url) => {
     }
 }
 </script>
+<style scoped>
+.custom-image {
+    width: 269px;
+    height: 151px;
+}
+
+@media (max-width: 768px) {
+    .custom-image {
+        width: 240px;
+        height: 151px;
+    }
+}
+</style>

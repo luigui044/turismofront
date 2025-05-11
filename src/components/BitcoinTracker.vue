@@ -2,9 +2,9 @@
     <div class="bitcoin-tracker p-3 shadow-4">
         <div class="flex justify-content-between align-items-center mb-3">
             <h3 class="m-0">Bitcoin Price</h3>
-            <router-link to="/crypto" class="text-sm">
+            <!-- <router-link to="/crypto" class="text-sm">
                 <Button label="Ver más" icon="pi pi-external-link" link size="small" />
-            </router-link>
+            </router-link> -->
         </div>
         <div class="price-container text-center">
             <div v-if="loading" class="flex justify-content-center">
